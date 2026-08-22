@@ -72,7 +72,7 @@ function App() {
             </p>
           </div>
           <div className="hero-art">
-            <img src="/photos/cutout-outdoors.png" alt="Fo' Deep" />
+            <img src="/photos/hero-group.jpg" alt="Fo' Deep walking in Oceanside, CA" />
           </div>
         </section>
 
