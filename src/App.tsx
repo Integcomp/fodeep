@@ -1,4 +1,5 @@
 import { BookingForm } from './BookingForm'
+import { artists, gallery } from './content/site'
 import './App.css'
 
 const IG = 'https://www.instagram.com/fodeep760/'
@@ -6,28 +7,17 @@ const RIDE = 'https://music.apple.com/us/album/ride/1779505713?i=1779505715'
 const NOVOCAINE = 'https://music.apple.com/us/album/novocaine/1867064043?i=1867064258'
 const ARTIST = 'https://music.apple.com/us/artist/fodeep/1779200663'
 
-const gallery = [
-  { src: '/photos/gallery-studio.jpg', alt: "Fo' Deep studio portrait", className: 'wide' },
-  { src: '/photos/gallery-live.jpg', alt: "Fo' Deep live on stage" },
-  { src: '/photos/crop-flyer-group.jpg', alt: "Fo' Deep concert flyer" },
-  { src: '/photos/gallery-crew.jpg', alt: "Fo' Deep crew" },
-  { src: '/photos/gallery-novocaine.jpg', alt: 'Novocaine promo art' },
-  { src: '/photos/gallery-outdoors.jpg', alt: "Fo' Deep outdoors" },
-  { src: '/photos/gallery-token.jpg', alt: "Fo' Deep — Token" },
-  { src: '/photos/gallery-flyer.jpg', alt: 'Fo Deep Concert flyer' },
-]
-
 function App() {
   return (
     <>
       <header className="nav">
         <a className="nav-brand" href="#top">
-          <img src="/photos/cutout-profile.png" alt="" width={36} height={36} />
           <span className="script">Fo&apos; Deep</span>
         </a>
         <nav>
+          <a href="#crew">Crew</a>
           <a href="#music">Music</a>
-          <a href="#gallery">Gallery</a>
+          <a href="#photos">Photos</a>
           <a href="#book">Book</a>
           <a href={IG} target="_blank" rel="noreferrer">
             Instagram
@@ -37,16 +27,17 @@ function App() {
 
       <main id="top">
         <section className="hero">
-          <div className="hero-bg" aria-hidden="true">
-            <img src="/photos/crop-live.jpg" alt="" />
+          <div className="hero-media">
+            <img src="/photos/hero-group.jpg" alt="Fo' Deep walking in Oceanside, CA" />
+            <div className="hero-overlay" />
           </div>
-          <div className="hero-copy">
+          <div className="hero-inner">
             <p className="eyebrow">Oceanside, CA · 760</p>
             <h1>
               F<span className="o">O</span>&apos; DEEP
             </h1>
             <p className="lede">
-              West Coast hip-hop from Oceanside. Catch the singles, then lock a date.
+              West Coast hip-hop out of Oceanside. Stream the singles, meet the crew, lock a date.
             </p>
             <div className="hero-actions">
               <a className="btn primary" href="#book">
@@ -56,23 +47,32 @@ function App() {
                 Listen
               </a>
             </div>
-            <p className="crew">
-              <a href="https://www.instagram.com/scurvy._.dogg/" target="_blank" rel="noreferrer">
-                @scurvy._.dogg
-              </a>
-              <a href="https://www.instagram.com/doctorleyva/" target="_blank" rel="noreferrer">
-                @doctorleyva
-              </a>
-              <a href="https://www.instagram.com/mike.new.760/" target="_blank" rel="noreferrer">
-                @mike.new.760
-              </a>
-              <a href="https://www.instagram.com/jsmoke760/" target="_blank" rel="noreferrer">
-                @jsmoke760
-              </a>
-            </p>
           </div>
-          <div className="hero-art">
-            <img src="/photos/hero-group.jpg" alt="Fo' Deep walking in Oceanside, CA" />
+        </section>
+
+        <section id="crew" className="section crew">
+          <div className="section-head">
+            <p className="eyebrow">The 760</p>
+            <h2>The Crew</h2>
+          </div>
+          <div className="crew-grid">
+            {artists.map((member) => (
+              <a
+                key={member.handle}
+                className="crew-card"
+                href={member.ig}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <div className="crew-photo">
+                  <img src={member.photo} alt={member.name} />
+                </div>
+                <div className="crew-meta">
+                  <h3>{member.name}</h3>
+                  <p>@{member.handle}</p>
+                </div>
+              </a>
+            ))}
           </div>
         </section>
 
@@ -121,15 +121,15 @@ function App() {
           </div>
         </section>
 
-        <section id="gallery" className="section gallery">
+        <section id="photos" className="section photos">
           <div className="section-head">
             <p className="eyebrow">From the 760</p>
-            <h2>Gallery</h2>
+            <h2>Photos</h2>
           </div>
-          <div className="grid">
+          <div className="photo-grid">
             {gallery.map((shot) => (
-              <figure key={shot.src} className={shot.className}>
-                <img src={shot.src} alt={shot.alt} />
+              <figure key={shot.src} className={shot.wide ? 'wide' : undefined}>
+                <img src={shot.src} alt={shot.alt} loading="lazy" />
               </figure>
             ))}
           </div>
