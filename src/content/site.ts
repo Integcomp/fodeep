@@ -14,7 +14,7 @@ export type GalleryShot = {
 export const artists: Artist[] = [
   {
     handle: 'scurvy._.dogg',
-    name: "Scurvy",
+    name: 'Scurvy',
     ig: 'https://www.instagram.com/scurvy._.dogg/',
     photo: '/photos/artists/scurvy.png',
   },
@@ -40,9 +40,11 @@ export const artists: Artist[] = [
 
 export const gallery: GalleryShot[] = [
   { src: '/photos/gallery/live.jpg', alt: "Fo' Deep live with full band", wide: true },
-  { src: '/photos/gallery/studio.jpg', alt: "Fo' Deep studio session" },
-  { src: '/photos/gallery/crew.jpg', alt: "Fo' Deep crew" },
-  { src: '/photos/gallery/token-live.jpg', alt: "Fo' Deep — Token live" },
-  { src: '/photos/gallery/podcast.jpg', alt: 'Dreamer To Destino podcast' },
-  { src: '/photos/gallery/flyer.jpg', alt: "Fo' Deep concert flyer" },
+  { src: '/photos/gallery/studio-group.jpg', alt: "Fo' Deep studio session" },
+  { src: '/photos/gallery/car-wreck.jpg', alt: "Fo' Deep at the car wreck" },
+  { src: '/photos/gallery/cartoon.jpg', alt: "Fo' Deep illustrated" },
+  { src: '/photos/gallery/studio-board.jpg', alt: 'In the studio' },
+  { src: '/photos/gallery/stage.jpg', alt: 'On stage' },
+  { src: '/photos/gallery/parking-lot.jpg', alt: 'Fo Deep crew — Oceanside' },
+  { src: '/photos/gallery/hennessy.jpg', alt: 'Fo Deep — 760 life' },
 ]
